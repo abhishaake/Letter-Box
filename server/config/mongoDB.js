@@ -3,7 +3,10 @@ const mongoose=require('mongoose');
 // console.log("debug : DB URL " + db);
 const connectDB =async()=>{
     try {
-        await mongoose.connect(db);
+        await mongoose.connect(db,{
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
         console.log('MongoDB is Connected...')
     } catch (err) {
         console.error(err.message);

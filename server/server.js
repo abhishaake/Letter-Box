@@ -5,12 +5,14 @@ require('dotenv').config();
 
 const connectDB = require('./config/mongoDB');
 connectDB();
+const index = require('./models/index.js');
 
 const app = express();
 
 app.use(express.json({ extended: false }));
 
 app.use('/api/feed', require('./routes/common'));
+app.use('/api/user', require('./routes/login'));
 
 
 if (process.env.NODE_ENV === 'production') {
