@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
 const { createSecretToken } = require("./secretToken.js");
 
-
+// 1001 - 1005
 const Messages = Object.freeze({
     UserAlreadyExists: 'User Already Exists',
     NewUserCreated: 'New User Created',
