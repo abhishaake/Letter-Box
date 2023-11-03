@@ -1,0 +1,61 @@
+.page{
+    height: 100vh !important; 
+    padding:5% 10% 10% !important;
+    overflow: hidden ;
+}
+
+.pageColumn{
+    max-width:500px !important;
+    width:98vw !important;
+    padding: 20px;
+}
+
+.loginContainer{
+    transition: all 0.7s ease-out;
+    margin: auto !important;
+    padding:0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-width:430px !important;
+    width:72vw !important;
+    position: relative;
+    left:0;
+    right: 0;
+}
+
+
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+.containerAnimationOutLeft{
+    left: -100% !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+.containerAnimationOutRight{
+    left: 100% !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.containerAnimationInRight{
+    animation: 0.7s ease-out 0s 1 slideInFromRight;
+}
+.containerAnimationInLeft{
+    animation: 0.7s ease-out 0s 1 slideInFromLeft;
+}

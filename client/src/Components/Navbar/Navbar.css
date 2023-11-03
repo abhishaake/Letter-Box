@@ -1,0 +1,52 @@
+
+.menubar{
+    float:right !important;
+    position: relative !important;
+    z-index:9999 !important;
+    height: 100vh !important;
+    width: 70px !important;
+}
+
+.sideMenu{
+    background: white !important;
+    position: relative !important;
+}
+.logo{
+    width:100% !important;
+}
+
+.sideMenuItem, .sideMenu >a{
+    font-weight: bold !important;
+    left: -10px !important;
+    color: black !important;
+}
+.sideMenuItem:hover{
+    font: icon !important;
+    font-weight: bolder !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+}
+
+.ui.sidebar{
+    height: 170px !important;
+}
+.ui.inverted.menu .item:before{
+    background: transparent !important;    
+}
+
+.searchInput{
+    min-width: 180px !important;
+    width:30%!important;
+    height: 90% !important;
+    color: black !important;
+    border-radius: 8px !important;
+}
+.searchInput>input{
+    border-radius: 16px !important;
+}
+
+body ::-webkit-scrollbar{-webkit-appearance:none;width:0px !important;height:0px}
+
+.ui.inverted.menu a.item:hover{
+    background: transparent !important;
+}

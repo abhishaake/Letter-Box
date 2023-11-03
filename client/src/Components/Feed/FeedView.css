@@ -1,0 +1,180 @@
+.main{
+    z-index: 999;
+    position: relative !important;
+    top: -100vh !important;
+    width: 100% !important;
+    height: 100vh !important; 
+    padding: 10px !important;
+    color: white !important;
+    overflow: auto;
+}
+.colMain{
+    color: white !important;
+}
+
+
+.likeButton:hover{
+    color: gray !important;
+}
+.likeButtonActive{
+    color: red !important;
+    size: large !important;
+    transition: font 0.05s !important;
+    line-height: 0.7 !important;
+    vertical-align: middle !important;
+    font-size: 1.3em !important;
+}
+.likeButtonActive:hover{
+    color: red !important;
+}
+
+
+
+@media only screen and (max-width: 4000px){
+    .colLeft {
+        margin-top: 13px !important;
+        border-color: #0f1015 !important;
+        border-width: 0 0 5px 0 !important;
+        border-style: solid;
+        height: 88vh !important;
+        overflow: hidden !important;
+        position: fixed !important;
+        left: 0 !important;
+        width: 20% !important;
+        top: 60px;
+    }
+    .colMid{
+        overflow-y:auto;
+        width: 60% !important;
+        height: 89vh !important;
+        margin-bottom: 50px !important;
+    }
+    .colRight{
+        height: 100% !important;
+        overflow-y:auto;
+        position: fixed !important;
+        right: 0 !important;
+        width: 20.5% !important;
+        top: 60px !important;
+        padding-left: 2px !important;
+    }
+    .profilePicCol{
+        width: 100% !important;
+        height: 100% !important;
+        justify-content: center !important;
+        display: flex !important;
+    }
+    .profileInfoCol{
+        width: 100% !important;
+        margin-top: 10px !important;
+        padding: 0 !important;
+    }
+    .profilePic{
+        box-shadow: 0 0 !important;
+        border-radius: 50% !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: black !important;
+        width: 80% !important;
+        height: 80% !important;
+    }
+    .profilePic>.image{
+        border-radius: 50% !important;
+        width: 100% !important;
+        background: transparent !important;
+    }
+    .profileInfoText{
+        font-size: 16px !important;
+        max-height: 25% !important;
+        height:fit-content !important;
+        color:black !important;
+        background:transparent !important;
+        padding:0 !important;
+        margin: 10px 0 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-width: 0 !important;
+        box-shadow: 0 0 !important;
+    }
+
+    .newPostInput{
+        max-height: 89px;
+        background-color: #f8f8f8;
+        overflow: hidden;
+    }
+    .newPostInput>textarea{
+        height: 100% !important;
+    }
+    .postButton{
+        float: right !important;
+    }
+
+    .mobilePost{
+        width: 0 !important;
+        height: 0 !important;
+        visibility: hidden !important;
+        padding: 0 0 !important;
+    }
+    .desktopPost{
+        height: fit-content !important;
+        padding:15px 15px 0 15px !important;
+        visibility: visible !important;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .colLeft {
+        height: 26vw !important;
+        width: 16% !important;
+        position: relative !important;
+        top: 0px;
+        margin-bottom: 10px !important;
+    }
+    .colMid{
+        width: 60% !important;
+        height: 60vh !important;
+    }
+    .colRight{
+        width: 20% !important;
+        position: relative !important;
+    }
+    .profilePicCol{
+        width: 26vw !important;
+        height: 26vw !important;
+        padding: 6px 2px 2px 2px !important;
+    }
+    .profileInfoCol{
+        width: 60vw !important;
+        height: 26vw !important;
+        
+    }
+    .profileInfoText{
+        font-size: 12px !important;
+        margin: 2px 0 !important;
+    }
+
+    .newPostInput{
+        max-height: 70px;
+    }
+    .postButton{
+        width: 48% !important;
+        font-size: 12px !important;
+        padding: 7px !important;
+    }
+    .mobilePost{
+        width: 100% !important;
+        height: fit-content !important;
+        padding:15px 15px 0 15px !important;
+        visibility: visible !important;
+    }
+
+    .desktopPost{
+        width: 0 !important;
+        height: 0 !important;
+        visibility: hidden !important;
+        padding: 0 0 !important;
+        margin: 0 0 !important;
+    }
+}
+

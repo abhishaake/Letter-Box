@@ -18,13 +18,19 @@ tokenVerification = (token) => {
     if (!token) {
       return null;
     }
-    return jwt.verify(token, process.env.JWT_SECRET);
+    try{
+        let res = jwt.verify(token, process.env.JWT_SECRET);
+        return res;
+    }
+    catch(e){
+        return null;
+    }
 }
 
 homeFeed = async (req, res, next) =>{
     // verify token
     const token = req.cookies.token;
-    
+    console.log("\n \n \n token " + JSON.stringify(req.cookies)+ "\n \n");
     var decode = tokenVerification(token);
     if(!decode){
         res.status(401).json({code:200,msg:Messages.Unauthorized,data:{}});
@@ -40,11 +46,12 @@ homeFeed = async (req, res, next) =>{
     // get followees
 
     const followees = await Follower.find({follower: user._id});
-    var posts = [];
+    var posts = null;
     if(followees){
         for(let i in followees){
             // get posts
-            posts = [...posts,await Post.find({from:followees[i].followee})];
+            if(!posts) posts = await Post.find({from:followees[i].followee}).populate('from','_id firstName lastName');
+            else posts = posts.concat(await Post.find({from:followees[i].followee}).populate('from','_id firstName lastName'));
         }
     }
 

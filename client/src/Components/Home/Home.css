@@ -1,0 +1,15 @@
+
+  @keyframes slideInFromBottom {
+    0% {
+       margin-left: 2px;  
+      transform: translateY(100%);
+    }
+    100% {
+        margin-left: 2px;
+      transform: translateY(0);
+    }
+  }
+
+.containerAnimationInBottom{
+    animation: 0.2s ease-out 0s 1 slideInFromBottom;
+}

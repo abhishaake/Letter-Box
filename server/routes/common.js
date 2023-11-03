@@ -8,10 +8,10 @@ const {homeFeed,userFeed,getPost, addPost} = require('../controllers/common.js')
 
 router.use(cookieParser());
 
-router.get('/home', homeFeed);
-router.get('/user', userFeed);
-router.get('/user/:id', userFeed);
-router.get('/post/:id', getPost);
+router.post('/home', homeFeed);
+router.post('/user', userFeed);
+router.post('/user/:id', userFeed);
+router.post('/post/:id', getPost);
 router.post('/post', addPost);
 
 module.exports = router;

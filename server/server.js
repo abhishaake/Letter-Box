@@ -1,6 +1,7 @@
 // *SERVER
 const express = require('express');
 const path = require('path');
+const cors = require("cors");
 
 require('dotenv').config();
 
@@ -9,7 +10,13 @@ connectDB();
 const index = require('./models/index.js');
 
 const app = express();
-
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json({ extended: false }));
 
 app.use('/api/feed', require('./routes/common'));
