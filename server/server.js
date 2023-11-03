@@ -12,7 +12,7 @@ const index = require('./models/index.js');
 const app = express();
 app.use(
   cors({
-    origin: ["https://letterbox-dev.netlify.app/"],
+    origin: ["https://letterbox-dev.netlify.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
