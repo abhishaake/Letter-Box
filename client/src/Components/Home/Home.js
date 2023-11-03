@@ -35,7 +35,7 @@ function Home(){
                     navigate("/");
                 }
                 const { data } = await axios.post(
-                  "http://localhost:5000/api/feed/home",{},
+                  "https://letterbox.onrender.com/api/feed/home",{},
                   { withCredentials: true }
                 );
                 setLoading(false);
