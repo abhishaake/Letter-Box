@@ -31,9 +31,9 @@ function Home(){
         const getData = async()=>{
             try {
                 
-                if (!cookies.token) {
-                    navigate("/");
-                }
+                // if (!cookies.token) {
+                //     navigate("/");
+                // }
                 const { data } = await axios.post(
                   "https://letterbox.onrender.com/api/feed/home",{},
                   { withCredentials: true }
