@@ -66,6 +66,8 @@ loginUser = async (req, res, next) =>{
     
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
+        sameSite: 'none',
+        secure: true ,
         withCredentials: true,
         httpOnly: false,
     });
