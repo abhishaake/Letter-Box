@@ -4,6 +4,7 @@ import dp from "../Assets/man.jpg";
 import AccountInfo from "../AccountInfo/AccountInfo";
 import Post from "../Post/Post";
 import { useState, useEffect } from "react";
+import Skeleton from 'react-loading-skeleton'
 
 
 function FeedView({data}){
@@ -19,7 +20,7 @@ function FeedView({data}){
         postId: -1
     });
 
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState(new Array(5).fill({}));
     const newPost = data.newPost;
 
     const openPost = (_id) => {
@@ -30,7 +31,10 @@ function FeedView({data}){
     }
 
     useEffect(()=>{
+        if(!data.posts[0]?.from) return;
+
         setPosts(data.posts);
+
     },[data.posts]);
 
 
@@ -69,7 +73,7 @@ function FeedView({data}){
                             </Feed.Event>
                         </Feed>
                     </Card> }
-
+                
                     {
                         posts.map(function(post){
                             return (
@@ -85,12 +89,12 @@ function FeedView({data}){
                                             </Feed.Label>
                                             <Feed.Content>
                                                 <Feed.Summary style={{margin:'-0.5rem 0 0'}}>
-                                                <a>{post.from.firstName +" " + post.from.lastName}</a>
+                                                <a>{post.from?.firstName? post.from.firstName +" " + post.from.lastName: <Skeleton width={'20%'}/>}</a>
                                                 </Feed.Summary>
                                                 <Feed.Date style={{margin:'0'}}>3 days ago</Feed.Date>
                                                 <Feed.Extra text style={{maxWidth:'95%'}}>
-                                                    {post.msg.length>110 ? post.msg.slice(0,110) + "..." : post.msg}
-                                                    {post.msg.length>110 ? <a onClick={()=>openPost(1)}> see more</a>:""}
+                                                    {post.msg?post.msg.length>110 ? post.msg.slice(0,110) + "..." : post.msg : <Skeleton style={{borderRadius:'8px'}} width={'95%'}/>}
+                                                    {post.msg?post.msg.length>110 ? <a onClick={()=>openPost(1)}> see more</a>:"":<Skeleton style={{borderRadius:'8px'}} width={'95%'}/>}
                                                 </Feed.Extra>
                                                 <Feed.Meta>
                                                     <Feed.Like>

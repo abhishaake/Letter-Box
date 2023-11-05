@@ -11,6 +11,7 @@ import loadingGIF from "../Assets/loading_gif.gif";
 import "./Home.css";
 
 function Home(){
+     const baseURL = process.env.REACT_APP_BASE_URL;
      const [isLoading,setLoading] = useState(true);
 
      const reqObj = {
@@ -35,7 +36,7 @@ function Home(){
                 //     navigate("/");
                 // }
                 const { data } = await axios.post(
-                  "https://letterbox.onrender.com/api/feed/home",{},
+                  baseURL + "feed/home",{},
                   { withCredentials: true }
                 );
                 setLoading(false);
@@ -59,11 +60,8 @@ function Home(){
 
      return (<>
      <Navbar />
-     {isLoading && <div style={{minHeight:'99vh', minWidth:'99vw',position:'absolute'}}>
-        <img style={{width:'28vw',minWidth:'350px',display:'block',margin:'20vh auto 0'}} src={loadingGIF}/>
-     </div>}
      
-     {!isLoading && <Grid stackable columns={3} textAlign='center' className="main containerAnimationInBottom" verticalAlign='middle'>
+     {<Grid stackable columns={3} textAlign='center' className="main containerAnimationInBottom" verticalAlign='middle'>
          <AccountInfo data={{newPost:true,userInfo:homeData.user}}/>
          <FeedView data={{newPost:true,posts:homeData.posts}} />
          <Suggestions />

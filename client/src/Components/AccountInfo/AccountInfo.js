@@ -1,17 +1,14 @@
 import {Grid,Card,Form,Button,Icon,Segment,Feed,Header,Image} from "semantic-ui-react"
 import dp from "../Assets/man.jpg";
 import { useEffect, useState } from "react";
+import Skeleton from 'react-loading-skeleton'
 
 
 function AccountInfo({data}){
 
     const newPost = data.newPost;
 
-    const [userInfo,setUserInfo] = useState({
-        firstName: '',
-        lastName: '',
-        email: ''
-    });
+    const [userInfo,setUserInfo] = useState({});
     const reqObj = {
         operationName: '',
         variables: {},
@@ -38,11 +35,11 @@ function AccountInfo({data}){
                         <Grid.Column className="profileInfoCol">
                             <Segment className="profileInfoText"> 
                                     <Icon name='user' />
-                                    {userInfo.firstName + ' ' + userInfo.lastName}
+                                    {userInfo.firstName?userInfo.firstName + ' ' + userInfo.lastName:<Skeleton style={{borderRadius:'8px'}} width={'60%'}/>}
                             </Segment>
                             <Segment className="profileInfoText"> 
                             <Icon name='mail' />
-                                    {userInfo.email}
+                                    {userInfo.email || <Skeleton style={{borderRadius:'8px'}} width={'60%'}/>}
                             </Segment>
                             <Segment className="profileInfoText"> 
                                     <Icon name='users' />

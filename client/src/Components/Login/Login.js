@@ -15,6 +15,8 @@ import axios from "axios";
 
 
 function Login() {
+  const baseURL = process.env.REACT_APP_BASE_URL;
+
   const navigate = useNavigate();
   const [showSignUp, setShowSignUp] = useState(false);
   const [signInForm, setSignInForm] = useState({ email: "", password: "" });
@@ -34,7 +36,7 @@ function Login() {
     e.preventDefault();
     try {
         const { data } = await axios.post(
-          "https://letterbox.onrender.com/api/user/login",
+          baseURL+"user/login",
           signInForm,
           { withCredentials: true }
         );
